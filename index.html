@@ -40,13 +40,20 @@
         </div>
       </section>
 
-      <!-- Fast Native Services Scroll -->
       <section id="services" class="section">
         <div class="container hidden-reveal mb-4 text-center">
           <span class="subheading text-center" style="margin: 0 auto;">Core Expertise</span>
           <h2>Services That Drive Real Business Value</h2>
         </div>
-        <div class="services-scroll-wrapper hidden-reveal">
+        <div class="services-carousel-container">
+          <button id="slideLeftBtn" class="slider-btn left" aria-label="Slide Left">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button id="slideRightBtn" class="slider-btn right" aria-label="Slide Right">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+          
+          <div class="services-scroll-wrapper hidden-reveal" id="servicesScrollWrapper">
           <div class="services-scroll-content">
             <!-- Item 1 -->
             <div class="service-card">

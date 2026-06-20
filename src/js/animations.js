@@ -46,4 +46,21 @@ export function initAnimations() {
 
   const counters = document.querySelectorAll('.counter-value');
   counters.forEach(c => counterObserver.observe(c));
+
+  // Services Slider Logic
+  const slideLeftBtn = document.getElementById('slideLeftBtn');
+  const slideRightBtn = document.getElementById('slideRightBtn');
+  const scrollWrapper = document.getElementById('servicesScrollWrapper');
+
+  if (slideLeftBtn && slideRightBtn && scrollWrapper) {
+    slideLeftBtn.addEventListener('click', () => {
+      // scroll left by width of one card + gap approx
+      scrollWrapper.scrollBy({ left: -380, behavior: 'smooth' });
+    });
+
+    slideRightBtn.addEventListener('click', () => {
+      // scroll right by width of one card + gap approx
+      scrollWrapper.scrollBy({ left: 380, behavior: 'smooth' });
+    });
+  }
 }
