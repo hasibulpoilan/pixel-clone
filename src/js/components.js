@@ -6,7 +6,7 @@ export function createHeader() {
       <div class="container header-container">
         <a href="/" class="brand" style="text-decoration: none; display: flex; align-items: center;">
           <!-- <span class="brand-text" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px; color: var(--color-text);">PIXEL <span class="text-gradient" style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">SOLUTION</span></span> -->
-          <img src="/src/assets/images/logo.png" alt="Pixel Solution Logo" class="brand-logo" />
+          <img src="/logo.png" alt="Pixel Solution Logo" class="brand-logo" />
         </a>
         <nav class="main-nav">
           <a href="/">Home</a>
@@ -29,8 +29,8 @@ export function createFooter() {
       <div class="container footer-container">
         <div class="footer-brand">
           <!-- <span class="brand-text mb-2" style="font-family: var(--font-heading); font-weight: 800; font-size: 2rem; letter-spacing: -0.5px; color: white; display: block;">PIXEL <span class="text-gradient" style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">SOLUTION</span></span> -->
-          <img src="/src/assets/images/logo.png" alt="Pixel Solution Logo" class="footer-logo mb-2" />
-          <h2 class="mb-2">Ready to scale?</h2>
+          <img src="/logo.png" alt="Pixel Solution Logo" class="footer-logo mb-2" />
+          <h2 class="mb-2" style="color: #fff;">Ready to scale?</h2>
           <p class="mb-3 text-muted">Join 100+ Indian businesses growing their revenue with Pixel Solution.</p>
           <a href="/contact.html" class="btn btn-accent">Book a Free Strategy Call</a>
         </div>
