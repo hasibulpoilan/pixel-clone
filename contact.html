@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Pixel Solution</title>
+    <link rel="stylesheet" href="/src/css/home.css" />
+    <style>
+      .page-header {
+        padding: 150px 0 80px 0;
+        background: var(--color-bg);
+        text-align: center;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+      }
+      .contact-form {
+        background: var(--color-surface);
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--color-border);
+      }
+      .form-group {
+        margin-bottom: var(--spacing-md);
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: var(--spacing-xs);
+        font-weight: 600;
+        color: var(--color-text);
+      }
+      .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        font-family: var(--font-primary);
+        background: var(--color-bg);
+        color: var(--color-text);
+        transition: border-color var(--transition-fast);
+      }
+      .form-group input:focus, .form-group textarea:focus {
+        outline: none;
+        border-color: var(--color-primary);
+      }
+      .contact-info h3 {
+        margin-bottom: var(--spacing-sm);
+      }
+      .contact-info p {
+        color: var(--color-text-muted);
+        margin-bottom: var(--spacing-md);
+      }
+      @media (max-width: 768px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="page-header hidden-reveal">
+        <div class="container">
+          <h1 class="kinetic-text mb-2">Let's <span class="text-gradient">Talk Growth</span></h1>
+          <p class="lead" style="margin: 0 auto; max-width: 600px; color: var(--color-text-muted);">Fill out the form below or chat with us instantly on WhatsApp. We typically reply within 15 minutes during business hours.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container hidden-reveal">
+          <div class="contact-grid">
+            
+            <div class="contact-info">
+              <h3>Direct Contact</h3>
+              <p>Skip the form and reach out to us directly via phone or email.</p>
+              
+              <div class="mb-3">
+                <strong style="color: var(--color-text);">Email:</strong><br>
+                <a href="mailto:hello@pixelsolution.in" style="color: var(--color-primary); text-decoration: none;">hello@pixelsolution.in</a>
+              </div>
+              
+              <div class="mb-3">
+                <strong style="color: var(--color-text);">WhatsApp / Phone:</strong><br>
+                <a href="https://wa.me/919999999999" style="color: var(--color-primary); text-decoration: none;">+91 99999 99999</a>
+              </div>
+
+              <div class="mb-3">
+                <strong style="color: var(--color-text);">Location:</strong><br>
+                <span class="text-muted">India (Serving clients globally)</span>
+              </div>
+            </div>
+
+            <div class="contact-form">
+              <form id="growth-form" onsubmit="event.preventDefault(); alert('Form submitted! We will contact you soon.');">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number (WhatsApp)</label>
+                  <input type="tel" id="phone" required placeholder="+91">
+                </div>
+                <div class="form-group">
+                  <label for="service">What are you looking for?</label>
+                  <input type="text" id="service" placeholder="e.g., Website, SEO, Meta Ads">
+                </div>
+                <div class="form-group">
+                  <label for="message">Tell us about your business</label>
+                  <textarea id="message" rows="4" placeholder="Share a little about your goals..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Get Free Proposal</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

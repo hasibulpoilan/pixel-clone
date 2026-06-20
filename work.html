@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Work | Pixel Solution</title>
+    <link rel="stylesheet" href="/src/css/home.css" />
+    <style>
+      .page-header {
+        padding: 150px 0 80px 0;
+        background: var(--color-bg);
+        text-align: center;
+      }
+      .work-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+      }
+      .case-study {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+        background: var(--color-surface);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-border);
+      }
+      .case-study:nth-child(even) .cs-image {
+        order: 2;
+      }
+      .case-study:nth-child(even) .cs-content {
+        order: 1;
+      }
+      @media (max-width: 768px) {
+        .case-study {
+          grid-template-columns: 1fr;
+        }
+        .case-study:nth-child(even) .cs-image {
+          order: unset;
+        }
+        .case-study:nth-child(even) .cs-content {
+          order: unset;
+        }
+      }
+      .cs-image {
+        min-height: 400px;
+        background-size: cover;
+        background-position: center;
+      }
+      .cs-content {
+        padding: var(--spacing-xl) var(--spacing-lg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .metrics {
+        display: flex;
+        gap: var(--spacing-md);
+        margin: var(--spacing-md) 0;
+        padding-top: var(--spacing-sm);
+        border-top: 1px solid var(--color-border);
+      }
+      .metric span {
+        display: block;
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--color-accent);
+      }
+      .metric p {
+        font-size: 0.85rem;
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="page-header hidden-reveal">
+        <div class="container">
+          <h1 class="kinetic-text mb-2">Our <span class="text-gradient">Work</span></h1>
+          <p class="lead" style="margin: 0 auto; max-width: 600px; color: var(--color-text-muted);">Real results for real Indian businesses. Explore how we've transformed pipelines and multiplied revenue for our clients.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container hidden-reveal">
+          <div class="work-grid">
+            
+            <!-- Case Study 1 -->
+            <div class="case-study">
+              <div class="cs-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000');"></div>
+              <div class="cs-content">
+                <span style="color: var(--color-primary); font-weight: 700; margin-bottom: 0.5rem; display: block;">E-COMMERCE GROWTH</span>
+                <h2 class="mb-2">Scaling a local retail brand to 300% online sales in 90 days.</h2>
+                <p class="text-muted">We completely revamped their e-commerce website for speed and conversion, then deployed aggressive Meta Ads paired with WhatsApp automated follow-ups for abandoned carts.</p>
+                <div class="metrics">
+                  <div class="metric">
+                    <span>300%</span>
+                    <p>Sales Increase</p>
+                  </div>
+                  <div class="metric">
+                    <span>45%</span>
+                    <p>Lower CPA</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="case-study">
+              <div class="cs-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000');"></div>
+              <div class="cs-content">
+                <span style="color: var(--color-primary); font-weight: 700; margin-bottom: 0.5rem; display: block;">B2B SAAS / AI IMPLEMENTATION</span>
+                <h2 class="mb-2">Automating lead qualification with AI Calling Agents.</h2>
+                <p class="text-muted">A B2B service provider was losing leads due to slow callback times. We integrated our AI Calling Agent, which instantly called back leads 24/7 and booked qualified appointments directly into their CRM.</p>
+                <div class="metrics">
+                  <div class="metric">
+                    <span>500+</span>
+                    <p>Calls Handled/Mo</p>
+                  </div>
+                  <div class="metric">
+                    <span>4x</span>
+                    <p>More Appointments</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="section" style="background: var(--color-surface);">
+        <div class="container text-center hidden-reveal">
+          <h2 class="mb-2">Want these results for your business?</h2>
+          <a href="/contact.html" class="btn btn-primary mt-2">Get Your Custom Proposal</a>
+        </div>
+      </section>
+
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
