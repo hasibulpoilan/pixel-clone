@@ -6,102 +6,195 @@
     <title>Contact Us | Pixel Solution</title>
     <link rel="stylesheet" href="/src/css/home.css" />
     <style>
-      .contact-header {
-        padding: 150px 0 80px 0;
-        background: var(--color-bg);
+      .contact-hero {
+        padding: 180px 0 80px 0;
         text-align: center;
+        background: var(--color-bg);
       }
-      .contact-grid {
+      
+      /* Top 4 Cards Layout */
+      .info-cards-wrapper {
+        background: var(--color-bg);
+        padding-bottom: var(--spacing-xl);
+      }
+      .info-cards-container {
         display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: var(--spacing-2xl);
-        align-items: start;
-        margin-top: var(--spacing-xl);
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-md);
       }
-      @media (max-width: 992px) {
-        .contact-grid {
+      @media (max-width: 1024px) {
+        .info-cards-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .info-cards-container {
           grid-template-columns: 1fr;
         }
       }
-      .contact-info-card {
+      
+      .info-card-top {
         background: var(--color-surface);
-        padding: var(--spacing-lg);
-        border-radius: var(--radius-lg);
         border: 1px solid var(--color-border);
+        padding: var(--spacing-lg) var(--spacing-md);
+        border-radius: var(--radius-lg);
+        text-align: center;
         box-shadow: var(--shadow-sm);
         transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
-      .contact-info-card:hover {
+      .info-card-top:hover {
         transform: translateY(-5px);
         box-shadow: var(--shadow-md);
         border-color: var(--color-primary);
       }
-      .info-item {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: var(--spacing-md);
-      }
-      .info-icon {
-        width: 48px;
-        height: 48px;
+      .info-icon-top {
+        width: 60px;
+        height: 60px;
         background: rgba(var(--color-primary-rgb), 0.1);
         color: var(--color-primary);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-right: var(--spacing-sm);
-        flex-shrink: 0;
+        margin-bottom: var(--spacing-md);
       }
-      .info-content h3 {
-        margin-bottom: 0.2rem;
-        font-size: 1.2rem;
+      .info-card-top h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
       }
-      .info-content p, .info-content a {
+      .info-card-top p, .info-card-top a {
         color: var(--color-text-muted);
         text-decoration: none;
-        transition: color var(--transition-fast);
+        font-size: 0.95rem;
         line-height: 1.5;
+        transition: color var(--transition-fast);
       }
-      .info-content a:hover {
+      .info-card-top a:hover {
         color: var(--color-primary);
       }
-      /* Modern Form Styling */
-      .contact-form {
+
+      /* Middle Section (Image/Chat Box + Form) */
+      .contact-middle-section {
+        padding: var(--spacing-2xl) 0;
         background: var(--color-surface);
+      }
+      .contact-middle-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-2xl);
+        align-items: center;
+      }
+      @media (max-width: 992px) {
+        .contact-middle-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Left Side: Chat Box / Graphic */
+      .chat-live-box {
+        background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-2xl);
+        color: white;
+        text-align: center;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+        overflow: hidden;
+      }
+      .chat-live-box::before {
+        content: '';
+        position: absolute;
+        top: -50%; left: -50%; width: 200%; height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+        animation: rotate 20s linear infinite;
+      }
+      @keyframes rotate {
+        100% { transform: rotate(360deg); }
+      }
+      .chat-icon-large {
+        width: 80px;
+        height: 80px;
+        background: white;
+        color: var(--color-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--spacing-md);
+        position: relative;
+        z-index: 1;
+      }
+      .chat-live-box h3 {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-sm);
+        position: relative;
+        z-index: 1;
+        color: white;
+      }
+      .chat-live-box p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: var(--spacing-lg);
+        position: relative;
+        z-index: 1;
+      }
+      .chat-live-box .btn-white {
+        background: white;
+        color: var(--color-primary);
+        border: none;
+        position: relative;
+        z-index: 1;
+        font-weight: bold;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .chat-live-box .btn-white:hover {
+        transform: scale(1.05);
+      }
+
+      /* Right Side: Form */
+      .contact-form-wrapper {
+        background: var(--color-bg);
         padding: var(--spacing-xl);
         border-radius: var(--radius-lg);
         border: 1px solid var(--color-border);
         box-shadow: var(--shadow-md);
       }
-      .form-group {
-        margin-bottom: var(--spacing-md);
+      .form-title {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-lg);
       }
       .form-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
       }
-      @media (max-width: 768px) {
+      @media (max-width: 600px) {
         .form-row {
           grid-template-columns: 1fr;
         }
       }
-      .form-label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-        color: var(--color-text);
+      .form-group {
+        margin-bottom: var(--spacing-md);
       }
       .form-control {
         width: 100%;
-        padding: 0.8rem 1rem;
-        background: var(--color-bg);
+        padding: 1rem;
+        background: var(--color-surface);
         border: 1px solid var(--color-border);
         border-radius: var(--radius-sm);
         color: var(--color-text);
         font-family: var(--font-body);
         transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      }
+      .form-control::placeholder {
+        color: var(--color-text-muted);
       }
       .form-control:focus {
         outline: none;
@@ -116,113 +209,139 @@
         width: 100%;
         padding: 1rem;
         font-size: 1.1rem;
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .submit-btn:hover {
+        background: var(--color-primary-dark);
+      }
+
+      /* Map Section */
+      .map-section {
+        width: 100%;
+        height: 400px;
+        background: #eee;
+        line-height: 0;
+      }
+      .map-section iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
       }
     </style>
   </head>
   <body>
     <main>
-      <!-- Header Section -->
-      <section class="contact-header hidden-reveal">
+      <!-- Hero Section -->
+      <section class="contact-hero hidden-reveal">
         <div class="container">
-          <span class="subheading">Contact Us</span>
-          <h1 class="kinetic-text mb-2">Get In <span class="text-gradient">Touch With Us!</span></h1>
-          <p class="lead" style="margin: 0 auto; max-width: 600px; color: var(--color-text-muted);">Ready to scale? Let's discuss how our digital solutions can propel your business growth.</p>
+          <span class="subheading" style="justify-content: center;">Contact Info</span>
+          <h1 class="kinetic-text mb-2">Contact & <span class="text-gradient">Join Together</span></h1>
+          <p class="lead" style="margin: 0 auto; max-width: 600px; color: var(--color-text-muted);">We're ready to help you scale your business. Reach out to us through any of the channels below.</p>
         </div>
       </section>
 
-      <!-- Contact Info & Form -->
-      <section class="section">
-        <div class="container hidden-reveal">
-          <div class="contact-grid">
+      <!-- 4 Horizontal Info Cards -->
+      <section class="info-cards-wrapper hidden-reveal">
+        <div class="container">
+          <div class="info-cards-container">
             
-            <!-- Left: Contact Info -->
-            <div class="contact-info-sidebar">
-              <div class="contact-info-card mb-4">
-                <div class="info-item">
-                  <div class="info-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  </div>
-                  <div class="info-content">
-                    <h3>Location</h3>
-                    <p>Garia, South Kolkata,<br>Kolkata 700084</p>
-                  </div>
-                </div>
+            <!-- Location -->
+            <div class="info-card-top">
+              <div class="info-icon-top">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </div>
-              
-              <div class="contact-info-card mb-4">
-                <div class="info-item">
-                  <div class="info-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  </div>
-                  <div class="info-content">
-                    <h3>Email</h3>
-                    <a href="mailto:info@pixelsolution.in">info@pixelsolution.in</a>
-                  </div>
-                </div>
-              </div>
+              <h3>Visit Us At</h3>
+              <p>Garia, South Kolkata,<br>Kolkata 700084</p>
+            </div>
 
-              <div class="contact-info-card mb-4">
-                <div class="info-item">
-                  <div class="info-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  </div>
-                  <div class="info-content">
-                    <h3>Phone</h3>
-                    <a href="tel:+918240017974">+91 8240017974</a>
-                  </div>
-                </div>
+            <!-- Phone -->
+            <div class="info-card-top">
+              <div class="info-icon-top">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               </div>
+              <h3>Call Us On</h3>
+              <a href="tel:+918240017974">+91 8240017974</a>
+              <p>Mon - Fri, 9am - 6pm</p>
+            </div>
 
-              <div class="contact-info-card">
-                <div class="info-item">
-                  <div class="info-icon" style="background: rgba(var(--color-accent-rgb), 0.1); color: var(--color-accent);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                  </div>
-                  <div class="info-content">
-                    <h3>Follow Us</h3>
-                    <div style="display: flex; gap: 15px; margin-top: 10px;">
-                      <a href="https://www.instagram.com/pixelsolutiondigitalmarketing/" target="_blank" style="color: var(--color-text); transition: color var(--transition-fast);" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text)'"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-                      <a href="https://www.facebook.com/profile.php?id=61557723166922" target="_blank" style="color: var(--color-text); transition: color var(--transition-fast);" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text)'"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
-                    </div>
-                  </div>
-                </div>
+            <!-- Email -->
+            <div class="info-card-top">
+              <div class="info-icon-top">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               </div>
+              <h3>Mail Address</h3>
+              <a href="mailto:info@pixelsolution.in">info@pixelsolution.in</a>
+              <p>24/7 Online Support</p>
+            </div>
+
+            <!-- Social Media -->
+            <div class="info-card-top">
+              <div class="info-icon-top">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </div>
+              <h3>Follow Us</h3>
+              <div style="display: flex; gap: 15px; margin-top: 5px;">
+                <a href="https://www.instagram.com/pixelsolutiondigitalmarketing/" target="_blank"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                <a href="https://www.facebook.com/profile.php?id=61557723166922" target="_blank"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Middle Section -->
+      <section class="contact-middle-section hidden-reveal">
+        <div class="container">
+          <div class="contact-middle-grid">
+            
+            <!-- Left: Chat Live Graphic -->
+            <div class="chat-live-box">
+              <div class="chat-icon-large">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              </div>
+              <h3>Chat With Live !</h3>
+              <p>Ready to explode your revenue with Pixel Solution? Hit the button below and let's get started immediately.</p>
+              <button class="btn-white proposal-btn">LET'S CHAT</button>
             </div>
 
             <!-- Right: Contact Form -->
             <div class="contact-form-wrapper">
-              <form class="contact-form" action="#" method="POST">
-                <h3 class="mb-3">Send us a message</h3>
+              <span class="subheading" style="justify-content: flex-start; margin-bottom: 0.5rem;">Contact Us</span>
+              <h2 class="form-title">Reach & <span class="text-gradient">Get In Touch</span> With Us !</h2>
+              <form action="#" method="POST">
                 <div class="form-row">
-                  <div class="form-group">
-                    <label class="form-label">First Name</label>
-                    <input type="text" class="form-control" placeholder="John" required>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label">Last Name</label>
-                    <input type="text" class="form-control" placeholder="Doe" required>
-                  </div>
+                  <input type="text" class="form-control" placeholder="Your Name*" required>
+                  <input type="email" class="form-control" placeholder="Your Email*" required>
                 </div>
                 <div class="form-row">
-                  <div class="form-group">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" class="form-control" placeholder="john@example.com" required>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" placeholder="+91 00000 00000">
-                  </div>
+                  <input type="tel" class="form-control" placeholder="Your Number*" required>
+                  <input type="text" class="form-control" placeholder="Your Subject*">
                 </div>
                 <div class="form-group">
-                  <label class="form-label">How can we help you?</label>
-                  <textarea class="form-control" placeholder="Tell us about your project or business goals..." required></textarea>
+                  <textarea class="form-control" placeholder="Enter message..." required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary submit-btn">Submit Request</button>
+                <button type="submit" class="submit-btn">SEND MESSAGE</button>
               </form>
             </div>
 
           </div>
         </div>
+      </section>
+
+      <!-- Full Width Map Section -->
+      <section class="map-section hidden-reveal">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117996.95037632997!2d88.2773121060934!3d22.45908235212586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0270a2a4bdf62b%3A0xcb13b3a72d733b81!2sGaria%2C%20Kolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </section>
 
     </main>
