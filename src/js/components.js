@@ -13,7 +13,7 @@ export function createHeader() {
           <a href="/services.html">Services</a>
           <a href="/work.html">Our Work</a>
           <a href="/about.html">About Us</a>
-          <a href="/contact.html" class="btn btn-primary btn-sm">Get a Proposal</a>
+          <a href="#" class="btn btn-primary btn-sm proposal-btn">Get a Proposal</a>
         </nav>
         <button class="mobile-menu-toggle" aria-label="Toggle Menu">
           <span></span><span></span><span></span>
@@ -76,6 +76,41 @@ export function createWhatsAppButton() {
   `;
 }
 
+export function createProposalModal() {
+  return `
+    <div class="modal-overlay" id="proposalModal">
+      <div class="modal-content glass">
+        <button class="close-modal-btn" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="modal-header">
+          <h2 class="mb-1">Start Your Project</h2>
+          <p class="text-muted">Fill out the form below and we'll get back to you within 24 hours.</p>
+        </div>
+        <form class="modal-form" action="#" method="POST">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Jane Doe" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="jane@company.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-control" placeholder="+91 00000 00000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Project Details</label>
+            <textarea class="form-control" placeholder="What are you looking to build?" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Submit Proposal</button>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
 export function injectGlobalLayout() {
   const body = document.body;
   
@@ -88,8 +123,47 @@ export function injectGlobalLayout() {
   // Insert WhatsApp FAB
   body.insertAdjacentHTML('beforeend', createWhatsAppButton());
 
+  // Insert Proposal Modal
+  body.insertAdjacentHTML('beforeend', createProposalModal());
+
   // Init Header shrinking effect
   initHeaderScroll();
+
+  // Init Proposal Modal
+  initProposalModal();
+}
+
+function initProposalModal() {
+  const modal = document.getElementById('proposalModal');
+  const proposalBtns = document.querySelectorAll('.proposal-btn');
+  const closeBtn = document.querySelector('.close-modal-btn');
+
+  if (!modal) return;
+
+  // Open modal
+  proposalBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    });
+  });
+
+  // Close modal on button click
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
+
+  // Close modal on outside click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
 }
 
 function initHeaderScroll() {
