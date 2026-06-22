@@ -204,8 +204,27 @@ function initFormHandling() {
         const data = await response.json();
         
         if (data.success) {
-          alert('✅ Thank you! Your message has been sent successfully. Our team will contact you shortly.');
+          // Construct WhatsApp Message
+          const name = formData.get('name') || 'there';
+          const service = formData.get('service');
+          const subject = formData.get('subject');
+          
+          let waText = `Hi Pixel Solution! My name is ${name}.`;
+          if (service) {
+            waText += ` I am interested in ${service}.`;
+          } else if (subject) {
+            waText += ` I am reaching out regarding: ${subject}.`;
+          } else {
+            waText += ` I would like to discuss a project with you.`;
+          }
+          
+          const waUrl = `https://wa.me/918240017974?text=${encodeURIComponent(waText)}`;
+          
           form.reset();
+          
+          // Redirect to WhatsApp
+          window.location.href = waUrl;
+          
         } else {
           alert('❌ Something went wrong. Please try again.');
         }
