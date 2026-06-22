@@ -87,22 +87,25 @@ export function createProposalModal() {
           <h2 class="mb-1">Start Your Project</h2>
           <p class="text-muted">Fill out the form below and we'll get back to you within 24 hours.</p>
         </div>
-        <form class="modal-form" action="#" method="POST">
+        <form class="modal-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="91382c0a-2b15-4395-a841-9222629e13cc">
+          <input type="hidden" name="redirect" value="https://pixelsolution.in/">
+
           <div class="form-group">
             <label class="form-label">Name</label>
-            <input type="text" class="form-control" placeholder="Jane Doe" required>
+            <input type="text" name="name" class="form-control" placeholder="Jane Doe" required>
           </div>
           <div class="form-group">
             <label class="form-label">Email</label>
-            <input type="email" class="form-control" placeholder="jane@company.com" required>
+            <input type="email" name="email" class="form-control" placeholder="jane@company.com" required>
           </div>
           <div class="form-group">
             <label class="form-label">Phone</label>
-            <input type="tel" class="form-control" placeholder="+91 00000 00000">
+            <input type="tel" name="phone" class="form-control" placeholder="+91 00000 00000">
           </div>
           <div class="form-group">
             <label class="form-label">Project Details</label>
-            <textarea class="form-control" placeholder="What are you looking to build?" rows="3" required></textarea>
+            <textarea name="message" class="form-control" placeholder="What are you looking to build?" rows="3" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%;">Submit Proposal</button>
         </form>
