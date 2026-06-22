@@ -89,7 +89,6 @@ export function createProposalModal() {
         </div>
         <form class="modal-form" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="91382c0a-2b15-4395-a841-9222629e13cc">
-          <input type="hidden" name="redirect" value="https://pixelsolution.in/">
 
           <div class="form-group">
             <label class="form-label">Name</label>
@@ -134,6 +133,9 @@ export function injectGlobalLayout() {
 
   // Init Proposal Modal
   initProposalModal();
+
+  // Init AJAX Form Handling
+  initFormHandling();
 }
 
 function initProposalModal() {
@@ -177,5 +179,51 @@ function initHeaderScroll() {
     } else {
       header.classList.remove('header-shrunk');
     }
+  });
+}
+
+function initFormHandling() {
+  const forms = document.querySelectorAll('form[action="https://api.web3forms.com/submit"]');
+  forms.forEach(form => {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('button');
+      const originalText = submitBtn ? submitBtn.textContent : 'Submit';
+      
+      if (submitBtn) {
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+      }
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await response.json();
+        
+        if (data.success) {
+          alert('✅ Thank you! Your message has been sent successfully. Our team will contact you shortly.');
+          form.reset();
+        } else {
+          alert('❌ Something went wrong. Please try again.');
+        }
+      } catch (error) {
+        alert('❌ Something went wrong. Please check your internet connection and try again.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+        
+        // Close modal if it's the modal form
+        const modal = form.closest('.modal-overlay');
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    });
   });
 }
