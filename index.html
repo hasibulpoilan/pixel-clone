@@ -7,35 +7,67 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="Pixel Solution is India's leading digital marketing agency. We deliver high-impact ROI through Web Dev, SEO, Ads, and AI Calling Agents." />
     <link rel="stylesheet" href="/src/css/home.css" />
+    <style>
+      @media (max-width: 992px) {
+        .hero .container > div {
+          grid-template-columns: 1fr !important;
+          text-align: center;
+        }
+        .hero .container > div > div:first-child {
+          margin-bottom: 2rem;
+        }
+        .hero .container .hero-content div {
+          justify-content: center;
+        }
+      }
+    </style>
   </head>
   <body>
 
     <main>
       <!-- Hero Section -->
       <section class="hero">
-        <!-- Floating Stats -->
-        <div class="floating-stat stat-1">
-          <div class="stat-icon">🔥</div>
-          <div class="stat-text">
-            <strong>120+</strong>
-            <span>Projects Delivered</span>
-          </div>
-        </div>
-        <div class="floating-stat stat-2">
-          <div class="stat-icon">📈</div>
-          <div class="stat-text">
-            <strong>300%</strong>
-            <span>Avg. Client Growth</span>
-          </div>
-        </div>
+        <div class="container hidden-reveal">
+          <div style="display: grid; grid-template-columns: 1fr minmax(320px, 400px); gap: 3rem; align-items: center; position: relative; z-index: 10;">
+            
+            <!-- Left: Hero Text -->
+            <div class="hero-content" style="max-width: 100%;">
+              <span class="subheading">Your Digital Destination</span>
+              <h1 class="kinetic-text mb-2">We Build <br><span class="text-gradient" style="color: var(--color-primary);">Digital Growth</span> Engines.</h1>
+              <p class="lead">Not just beautiful websites or generic ads. We are an Indian agency combining engineering precision with marketing psychology to generate high-quality leads and multiply your revenue.</p>
+              <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                <a href="/contact.html" class="btn btn-primary" style="background: var(--color-accent); border: none; color: white;">Get a Custom Proposal</a>
+                <a href="/services.html" class="btn btn-accent" style="background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary);">See Our Services</a>
+              </div>
+            </div>
 
-        <div class="container hero-content hidden-reveal">
-          <span class="subheading">Your Digital Destination</span>
-          <h1 class="kinetic-text mb-2">We Build <br><span class="text-gradient" style="color: var(--color-primary);">Digital Growth</span> Engines.</h1>
-          <p class="lead">Not just beautiful websites or generic ads. We are an Indian agency combining engineering precision with marketing psychology to generate high-quality leads and multiply your revenue.</p>
-          <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-            <a href="/contact.html" class="btn btn-primary" style="background: var(--color-accent); border: none; color: white;">Get a Custom Proposal</a>
-            <a href="/services.html" class="btn btn-accent" style="background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary);">See Our Services</a>
+            <!-- Right: Floating Enquiry Form -->
+            <div class="hero-enquiry-form" style="background: var(--color-surface); padding: 2rem; border-radius: var(--radius-lg); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid rgba(var(--color-primary-rgb), 0.2); position: relative;">
+              <div style="position: absolute; top: -15px; right: -15px; background: var(--color-accent); color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.85rem; box-shadow: var(--shadow-sm); transform: rotate(5deg);">Free Consultation</div>
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem; color: var(--color-text);">Start Growing Today</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Fill out the form below and our experts will contact you shortly.</p>
+              
+              <form action="#" method="POST">
+                <div style="margin-bottom: 1rem;">
+                  <input type="text" placeholder="Your Name" required style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); background: var(--color-bg); font-family: inherit; transition: border-color 0.3s; color: var(--color-text);">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                  <input type="tel" placeholder="Phone Number" required style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); background: var(--color-bg); font-family: inherit; transition: border-color 0.3s; color: var(--color-text);">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                  <select required style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); background: var(--color-bg); font-family: inherit; color: var(--color-text); cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
+                    <option value="" disabled selected>Select a Service</option>
+                    <option value="website">Website Development</option>
+                    <option value="app">App Development</option>
+                    <option value="seo">SEO & Google Ads</option>
+                    <option value="meta">Meta & LinkedIn Ads</option>
+                    <option value="ai">Live Calling AI Agents</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; box-shadow: 0 4px 15px rgba(var(--color-primary-rgb), 0.4);">Enquire Now</button>
+              </form>
+            </div>
+
           </div>
         </div>
       </section>
