@@ -3,6 +3,7 @@
 :root {
   /* Colors - Derived from Logo */
   --color-primary: #29629b;       /* Pixel Solution Blue */
+  --color-primary-rgb: 41, 98, 155;
   --color-primary-light: #3d80c3;
   --color-primary-dark: #1b456e;
   
