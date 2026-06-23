@@ -54,13 +54,17 @@ export function initAnimations() {
 
   if (slideLeftBtn && slideRightBtn && scrollWrapper) {
     slideLeftBtn.addEventListener('click', () => {
-      // scroll left by width of one card + gap approx
       scrollWrapper.scrollBy({ left: -380, behavior: 'smooth' });
     });
 
     slideRightBtn.addEventListener('click', () => {
-      // scroll right by width of one card + gap approx
       scrollWrapper.scrollBy({ left: 380, behavior: 'smooth' });
     });
+  }
+
+  const testimonialMarquee = document.querySelector('.testimonial-marquee-content');
+  if (testimonialMarquee && !testimonialMarquee.dataset.cloned) {
+    testimonialMarquee.innerHTML += testimonialMarquee.innerHTML;
+    testimonialMarquee.dataset.cloned = 'true';
   }
 }

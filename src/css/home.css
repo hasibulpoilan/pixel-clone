@@ -229,6 +229,10 @@
   animation-play-state: paused;
 }
 
+.client-name {
+  font-weight: 700;
+}
+
 @keyframes scrollLeft {
   0% { transform: translateX(0); }
   100% { transform: translateX(calc(-50% - (var(--spacing-lg) / 2))); }
